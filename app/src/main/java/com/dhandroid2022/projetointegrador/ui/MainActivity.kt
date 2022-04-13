@@ -1,7 +1,8 @@
-package com.dhandroid2022.projetointegrador
+package com.dhandroid2022.projetointegrador.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.dhandroid2022.projetointegrador.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

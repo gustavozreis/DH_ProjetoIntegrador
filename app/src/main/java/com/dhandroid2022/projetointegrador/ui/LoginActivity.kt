@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.dhandroid2022.projetointegrador.R
-import com.dhandroid2022.projetointegrador.ui.mainmenu.HomeActivity
+import com.dhandroid2022.projetointegrador.ui.home.HomeActivity
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,9 +1,10 @@
-package com.dhandroid2022.projetointegrador.ui.home.heroes
+package com.dhandroid2022.projetointegrador.ui.ui.Fragments
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.dhandroid2022.projetointegrador.Adapter.HeroesListAdapter
 import com.dhandroid2022.projetointegrador.R
 import com.dhandroid2022.projetointegrador.data.Comics
 import com.dhandroid2022.projetointegrador.data.HeroesBuilder

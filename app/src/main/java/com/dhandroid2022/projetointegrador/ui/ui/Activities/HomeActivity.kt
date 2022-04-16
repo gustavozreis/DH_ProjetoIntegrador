@@ -1,11 +1,12 @@
-package com.dhandroid2022.projetointegrador.ui.home
+package com.dhandroid2022.projetointegrador.ui.ui.Activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
+import com.dhandroid2022.projetointegrador.Adapter.HomeViewPagerAdapter
 import com.dhandroid2022.projetointegrador.R
-import com.dhandroid2022.projetointegrador.ui.home.comics.ComicsListFragment
-import com.dhandroid2022.projetointegrador.ui.home.heroes.HeroesListFragment
+import com.dhandroid2022.projetointegrador.ui.ui.Fragments.ComicsListFragment
+import com.dhandroid2022.projetointegrador.ui.ui.Fragments.HeroesListFragment
 import com.google.android.material.tabs.TabLayout
 
 class HomeActivity : AppCompatActivity() {

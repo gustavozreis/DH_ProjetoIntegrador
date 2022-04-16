@@ -1,4 +1,4 @@
-package com.dhandroid2022.projetointegrador.ui.home
+package com.dhandroid2022.projetointegrador.Adapter
 
 import android.widget.Adapter
 import androidx.fragment.app.Fragment

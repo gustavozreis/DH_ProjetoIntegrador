@@ -1,4 +1,4 @@
-package com.dhandroid2022.projetointegrador.ui.home.comics
+package com.dhandroid2022.projetointegrador.ui.ui.Fragments
 
 import android.os.Bundle
 import android.view.View
@@ -7,8 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dhandroid2022.projetointegrador.R
 import com.dhandroid2022.projetointegrador.data.Comics
 import com.dhandroid2022.projetointegrador.data.HeroesBuilder
-import com.dhandroid2022.projetointegrador.ui.home.heroes.HeroesListAdapter
-import com.dhandroid2022.projetointegrador.ui.home.heroes.HeroesListFragment
+import com.dhandroid2022.projetointegrador.Adapter.HeroesListAdapter
 
 class ComicsListFragment : Fragment(R.layout.fragment_comics_list) {
 

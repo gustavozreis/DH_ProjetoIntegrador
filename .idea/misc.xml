@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/EstudosDH/DH_ProjetoIntegrador/app/src/main/res/layout/activity_home.xml" value="0.3625" />
+        <entry key="..\:/EstudosDH/DH_ProjetoIntegrador/app/src/main/res/layout/activity_main.xml" value="0.3625" />
+        <entry key="..\:/EstudosDH/DH_ProjetoIntegrador/app/src/main/res/layout/fragment_login.xml" value="0.3484375" />
+        <entry key="..\:/EstudosDH/DH_ProjetoIntegrador/app/src/main/res/layout/login_frag.xml" value="0.3625" />
+        <entry key="..\:/EstudosDH/DH_ProjetoIntegrador/app/src/main/res/layout/sign_in_frag.xml" value="0.3625" />
         <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject/app/src/main/res/layout/activity_home.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject/app/src/main/res/layout/activity_main.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject/app/src/main/res/layout/activity_menu.xml" value="0.33177083333333335" />
@@ -12,7 +17,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

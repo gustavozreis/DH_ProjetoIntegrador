@@ -1,4 +1,4 @@
-package com.dhandroid2022.projetointegrador.ui.home.heroes
+package com.dhandroid2022.projetointegrador.Adapter
 
 import android.content.Context
 import android.view.LayoutInflater

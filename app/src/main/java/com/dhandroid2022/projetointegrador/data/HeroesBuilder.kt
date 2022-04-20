@@ -1,11 +1,14 @@
 package com.dhandroid2022.projetointegrador.data
 
+import com.dhandroid2022.projetointegrador.data.models.Comic
+import com.dhandroid2022.projetointegrador.data.models.Hero
+
 class HeroesBuilder {
 
-    var heroesList = mutableListOf<HeroModel>()
+    var heroesList = mutableListOf<Hero>()
 
-    fun createHero(charId: Int, charName: String, charDescription: String, charComics: List<ComicModel>, charThumbnail: Int) {
-        val newHeroe = HeroModel(charId, charName, charDescription, charComics, charThumbnail)
+    fun createHero(charId: Int, charName: String, charDescription: String, charComics: List<Comic>, charThumbnail: Int) {
+        val newHeroe = Hero(charId, charName, charDescription, charComics, charThumbnail)
         heroesList.add(newHeroe)
     }
 

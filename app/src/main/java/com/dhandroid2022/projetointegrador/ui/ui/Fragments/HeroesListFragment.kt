@@ -1,16 +1,14 @@
 package com.dhandroid2022.projetointegrador.ui.ui.Fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.dhandroid2022.projetointegrador.Adapter.HeroesListAdapter
 import com.dhandroid2022.projetointegrador.R
-import com.dhandroid2022.projetointegrador.data.ComicModel
+import com.dhandroid2022.projetointegrador.data.models.Comic
 import com.dhandroid2022.projetointegrador.data.HeroDBMock
 import com.dhandroid2022.projetointegrador.data.HeroesBuilder
-import com.dhandroid2022.projetointegrador.ui.ui.Activities.HeroDetailActivity
 
 class HeroesListFragment : Fragment(R.layout.fragment_heroes_list) {
 
@@ -22,7 +20,7 @@ class HeroesListFragment : Fragment(R.layout.fragment_heroes_list) {
         super.onViewCreated(view, savedInstanceState)
 
         // Essa lista de quadrinhos de teste é somente pra ter algo para criar o herói, alteramos depois
-        var comicListTest = listOf(ComicModel("teste"), ComicModel("teste"))
+        var comicListTest = listOf(Comic("teste"), Comic("teste"))
 
         createMockHeroesList(comicListTest)
 
@@ -32,7 +30,7 @@ class HeroesListFragment : Fragment(R.layout.fragment_heroes_list) {
 
     }
 
-    private fun createMockHeroesList(comicListTest: List<ComicModel>) {
+    private fun createMockHeroesList(comicListTest: List<Comic>) {
         val heroesBuilder = HeroesBuilder()
         HeroDBMock.createHero(1,
             "Thor",

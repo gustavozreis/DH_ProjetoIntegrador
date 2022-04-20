@@ -1,9 +1,9 @@
-package com.dhandroid2022.projetointegrador.data
+package com.dhandroid2022.projetointegrador.data.models
 
-data class HeroModel(
+data class Hero(
     val charId: Int,
     val charName: String,
     val charDescription: String,
-    val charComics: List<ComicModel>,
+    val charComics: List<Comic>,
     val charThumbnail: Int
 )

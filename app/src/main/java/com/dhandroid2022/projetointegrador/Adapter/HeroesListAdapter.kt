@@ -9,10 +9,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.dhandroid2022.projetointegrador.R
-import com.dhandroid2022.projetointegrador.data.HeroModel
+import com.dhandroid2022.projetointegrador.data.models.Hero
 import com.dhandroid2022.projetointegrador.ui.ui.Activities.HeroDetailActivity
 
-class HeroesListAdapter(val context: Context, val heroesList: List<HeroModel>)
+class HeroesListAdapter(val context: Context, val heroesList: List<Hero>)
     : RecyclerView.Adapter<HeroesListAdapter.HeroViewHolder>() {
 
     inner class HeroViewHolder(itemView: View)  : RecyclerView.ViewHolder(itemView) {

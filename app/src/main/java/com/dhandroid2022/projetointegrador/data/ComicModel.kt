@@ -1,5 +1,5 @@
 package com.dhandroid2022.projetointegrador.data
 
-data class Comics(
+data class ComicModel(
     val comicName: String
 )

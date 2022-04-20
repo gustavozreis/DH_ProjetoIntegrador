@@ -25,4 +25,8 @@ class HomeActivity : AppCompatActivity() {
         tabLayoutHome.setupWithViewPager(viewPagerHome)
 
     }
+
+    fun teste(): Int {
+        return 1+1
+    }
 }

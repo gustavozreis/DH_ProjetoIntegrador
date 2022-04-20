@@ -5,9 +5,10 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.dhandroid2022.projetointegrador.R
-import com.dhandroid2022.projetointegrador.data.Comics
+import com.dhandroid2022.projetointegrador.data.ComicModel
 import com.dhandroid2022.projetointegrador.data.HeroesBuilder
 import com.dhandroid2022.projetointegrador.Adapter.HeroesListAdapter
+import com.dhandroid2022.projetointegrador.data.HeroDBMock
 
 class ComicsListFragment : Fragment(R.layout.fragment_comics_list) {
 
@@ -19,27 +20,10 @@ class ComicsListFragment : Fragment(R.layout.fragment_comics_list) {
         super.onViewCreated(view, savedInstanceState)
 
         // Essa lista de quadrinhos de teste é somente pra ter algo para criar o herói, alteramos depois
-        var comicListTest = listOf(Comics("teste"), Comics("teste"))
-
-        val heroesBuilder = HeroesBuilder()
-        heroesBuilder.createHero("Thor", "teste", comicListTest, R.drawable.thor)
-        heroesBuilder.createHero("Captain America","teste", comicListTest, R.drawable.captainamerica)
-        heroesBuilder.createHero("Black Widow", "teste", comicListTest, R.drawable.blackwidow)
-        heroesBuilder.createHero("Hulk", "teste", comicListTest, R.drawable.hulk)
-        heroesBuilder.createHero("Spider Man", "teste", comicListTest, R.drawable.spiderman)
-        heroesBuilder.createHero("Thor", "teste", comicListTest, R.drawable.thor)
-        heroesBuilder.createHero("Captain America", "teste", comicListTest, R.drawable.captainamerica)
-        heroesBuilder.createHero("Black Widow", "teste", comicListTest, R.drawable.blackwidow)
-        heroesBuilder.createHero("Hulk", "teste", comicListTest, R.drawable.hulk)
-        heroesBuilder.createHero("Spider Man", "teste", comicListTest, R.drawable.spiderman)
-        heroesBuilder.createHero("Thor", "teste", comicListTest, R.drawable.thor)
-        heroesBuilder.createHero("Captain America", "teste", comicListTest, R.drawable.captainamerica)
-        heroesBuilder.createHero("Black Widow", "teste", comicListTest, R.drawable.blackwidow)
-        heroesBuilder.createHero("Hulk", "teste", comicListTest, R.drawable.hulk)
-        heroesBuilder.createHero("Spider Man", "teste", comicListTest, R.drawable.spiderman)
+        var comicListTest = listOf(ComicModel("teste"), ComicModel("teste"))
 
         val recyclerView: RecyclerView = view.findViewById(R.id.heroes_list_recyclerview)
-        val recyclerViewAdapter = HeroesListAdapter(this.requireContext(), heroesBuilder.heroesList)
+        val recyclerViewAdapter = HeroesListAdapter(this.requireContext(), HeroDBMock.heroesList)
         recyclerView.adapter = recyclerViewAdapter
 
     }

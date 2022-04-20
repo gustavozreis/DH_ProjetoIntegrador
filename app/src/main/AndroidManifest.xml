@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoIntegrador">
         <activity
+            android:name=".ui.ui.Activities.HeroDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.ui.Activities.HomeActivity"
             android:exported="false" />
         <activity

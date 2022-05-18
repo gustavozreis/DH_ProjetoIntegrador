@@ -1,15 +1,15 @@
 package com.dhandroid2022.projetointegrador.data
 
-import com.dhandroid2022.projetointegrador.data.models.Comic
-import com.dhandroid2022.projetointegrador.data.models.Hero
+import com.dhandroid2022.projetointegrador.data.dto.ComicDTO
+import com.dhandroid2022.projetointegrador.data.dto.HeroDTO
 
 object HeroDBMock {
 
-    val heroesList: MutableList<Hero> = mutableListOf()
+    val heroesList: MutableList<HeroDTO> = mutableListOf()
 
-    fun createHero(charId: Int, charName: String, charDescription: String, charComics: List<Comic>, charThumbnail: Int) {
-        val newHero = Hero(charId, charName, charDescription, charComics, charThumbnail)
-        heroesList.add(newHero)
+    fun createHero(charId: Int, charName: String, charDescription: String, charComicDTOS: List<ComicDTO>, charThumbnail: Int) {
+        val newHeroDTO = HeroDTO(charId, charName, charDescription, charComicDTOS, charThumbnail)
+        heroesList.add(newHeroDTO)
     }
 
 }

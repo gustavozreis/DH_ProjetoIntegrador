@@ -1,11 +1,10 @@
-package com.dhandroid2022.projetointegrador.Adapter
+package com.dhandroid2022.projetointegrador.ui.Adapter
 
-import android.widget.Adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
-class HomeViewPagerAdapter (fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
+class ViewPagerAdapter (fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
 
     private var fragmentList: MutableList<Fragment> = mutableListOf()
     private var titleList: MutableList<String> = mutableListOf()

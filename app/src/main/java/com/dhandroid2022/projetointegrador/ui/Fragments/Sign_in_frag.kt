@@ -1,4 +1,4 @@
-package com.dhandroid2022.projetointegrador.ui.ui.Fragments
+package com.dhandroid2022.projetointegrador.ui.Fragments
 
 import android.os.Bundle
 import android.view.View

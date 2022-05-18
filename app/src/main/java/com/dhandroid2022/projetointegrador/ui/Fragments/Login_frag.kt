@@ -1,4 +1,4 @@
-package com.dhandroid2022.projetointegrador.ui.ui.Fragments
+package com.dhandroid2022.projetointegrador.ui.Fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.dhandroid2022.projetointegrador.R
-import com.dhandroid2022.projetointegrador.ui.ui.Activities.HomeActivity
+import com.dhandroid2022.projetointegrador.ui.Activities.HomeActivity
 
 class Login_frag : Fragment(R.layout.login_frag) {
 

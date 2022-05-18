@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dhandroid2022.projetointegrador">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,13 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoIntegrador">
         <activity
-            android:name=".ui.ui.Activities.HeroDetailActivity"
+            android:name="com.dhandroid2022.projetointegrador.ui.Activities.HeroDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.ui.Activities.HomeActivity"
+            android:name="com.dhandroid2022.projetointegrador.ui.Activities.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.ui.Activities.LoginActivity"
+            android:name="com.dhandroid2022.projetointegrador.ui.Activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

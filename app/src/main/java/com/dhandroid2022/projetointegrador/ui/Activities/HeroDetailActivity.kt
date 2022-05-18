@@ -1,13 +1,11 @@
-package com.dhandroid2022.projetointegrador.ui.ui.Activities
+package com.dhandroid2022.projetointegrador.ui.Activities
 
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import com.dhandroid2022.projetointegrador.R
 import com.dhandroid2022.projetointegrador.data.HeroDBMock
-import org.w3c.dom.Text
 
 class HeroDetailActivity : AppCompatActivity() {
 

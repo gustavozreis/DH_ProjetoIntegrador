@@ -2,17 +2,25 @@ package com.dhandroid2022.projetointegrador.ui.Adapter
 
 import android.content.Context
 import android.content.Intent
+import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.dhandroid2022.projetointegrador.R
-import com.dhandroid2022.projetointegrador.data.dto.HeroDTO
-import com.dhandroid2022.projetointegrador.ui.Activities.HeroDetailActivity
+import com.dhandroid2022.projetointegrador.data.heroDTO.HeroDTO
+import com.dhandroid2022.projetointegrador.ui.Fragments.HomeFragmentDirections
+import com.squareup.picasso.Picasso
 
-class HeroesListAdapter(val context: Context, val heroesList: List<HeroDTO>)
+class HeroesListAdapter(
+    private val context: Context?,
+    private val heroesList: List<HeroDTO>,
+    private val navController: NavController
+)
     : RecyclerView.Adapter<HeroesListAdapter.HeroViewHolder>() {
 
     inner class HeroViewHolder(itemView: View)  : RecyclerView.ViewHolder(itemView) {
@@ -29,17 +37,31 @@ class HeroesListAdapter(val context: Context, val heroesList: List<HeroDTO>)
     }
 
     override fun onBindViewHolder(holder: HeroViewHolder, position: Int) {
-        holder.heroName.text = heroesList[position].charName
-        holder.heroThumbnail.setImageResource(heroesList[position].charThumbnail)
+        val heroName = heroesList[position].name
+
+        val thumbnailUrl: String = heroesList[position].thumbnail.path + "." + heroesList[position].thumbnail.extension
+        val thumbnailUrlWithS: String = StringBuilder(thumbnailUrl).insert(4, "s").toString()
+
+        holder.heroName.text = heroName
+        insertImageFromUrl(thumbnailUrlWithS, holder.heroThumbnail)
+
         holder.heroThumbnail.setOnClickListener {
-            val intent = Intent(context, HeroDetailActivity::class.java)
-            intent.putExtra("hero_id", heroesList[position].charId)
-            context.startActivity(intent)
+            val action = HomeFragmentDirections.actionHomeFragmentToHeroDetailFragment(
+                thumbnailUrlWithS,
+                heroName
+            )
+            navController.navigate(action)
         }
     }
 
     override fun getItemCount(): Int {
         return heroesList.size
+    }
+
+    private fun insertImageFromUrl(url: String, view: ImageView) {
+        Glide.with(context!!)
+            .load(url)
+            .into(view)
     }
 
 }

@@ -14,19 +14,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
-        viewPagerAdapter.add(HeroesListFragment(), "Heroes")
-        viewPagerAdapter.add(ComicsListFragment(), "Comics")
+        //val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
 
-        val viewPagerHome: ViewPager = findViewById(R.id.viewpager_home)
-        viewPagerHome.adapter = viewPagerAdapter
-
-        val tabLayoutHome: TabLayout = findViewById(R.id.tablayout_home)
-        tabLayoutHome.setupWithViewPager(viewPagerHome)
-
-    }
-
-    fun teste(): Int {
-        return 1 + 1
     }
 }

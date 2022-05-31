@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -14,6 +15,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "ApiMarvelPrivada", API_PRIVATE_KEY)
+        buildConfigField("String", "ApiMarvelPublica", API_PUBLIC_KEY)
     }
 
     buildTypes {
@@ -22,12 +26,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
     }
 }
 
@@ -59,4 +68,26 @@ dependencies {
     // Fragment KTX
     def fragmentKtxVersion = "1.4.1"
     implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+
+    // Glide / Picasso
+    implementation 'com.squareup.picasso:picasso:2.4.0'
+    implementation 'com.github.bumptech.glide:glide:4.13.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
+    // LiveData
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    // Lifecycles only (without ViewModel or LiveData)
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
+
+    // Navigation
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
+
+    // ViewModel
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    // ViewModel utilities for Compose
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1'
+
+    implementation 'androidx.fragment:fragment-ktx:1.4.1'
+    implementation "androidx.activity:activity-ktx:1.4.0"
 }

@@ -13,6 +13,8 @@ import androidx.lifecycle.get
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dhandroid2022.projetointegrador.ui.Adapter.HeroesListAdapter
 import com.dhandroid2022.projetointegrador.R
@@ -32,6 +34,12 @@ class HeroesListFragment : Fragment() {
     private var _binding: FragmentHeroesListBinding? = null
     private val binding get() = _binding!!
 
+    private var heroList: MutableList<HeroDTO> = mutableListOf()
+
+    private var offset = 0
+
+    private var rvAdapter: HeroesListAdapter? = null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -44,8 +52,10 @@ class HeroesListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpBinding()
+        setUpAdapter()
         setUpObservers()
+        setUpBinding()
+        setUpRecyclerView()
 
     }
 
@@ -59,9 +69,32 @@ class HeroesListFragment : Fragment() {
             for (hero in heroListLiveData) {
                 heroList.add(hero)
             }
+            rvAdapter?.addData(heroList)
+        }
+    }
 
-            val recyclerViewAdapter = HeroesListAdapter(this.context, heroList, findNavController())
-            recyclerView.adapter = recyclerViewAdapter
+    private fun setUpAdapter() {
+        rvAdapter = HeroesListAdapter(this.context, heroList, findNavController())
+    }
+
+    private fun setUpRecyclerView() {
+        recyclerView.apply {
+            this.adapter = rvAdapter
+            addOnScrollListener(object : RecyclerView.OnScrollListener(){
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    super.onScrolled(recyclerView, dx, dy)
+                    val target = recyclerView.layoutManager as GridLayoutManager?
+                    val totalItemCount = target!!.itemCount
+                    val lastVisible = target.findLastVisibleItemPosition()
+                    val lastItem= lastVisible +1 >= totalItemCount
+
+                    if (totalItemCount > 0 && lastItem){
+                        offset += 100
+                        if(offset <= 1500)
+                            viewModel.getHeroes(offset.toString())
+                    }
+                }
+            })
         }
     }
 }

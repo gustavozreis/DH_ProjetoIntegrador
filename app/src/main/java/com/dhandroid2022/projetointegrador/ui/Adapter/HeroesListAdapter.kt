@@ -1,5 +1,6 @@
 package com.dhandroid2022.projetointegrador.ui.Adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.text.Layout
@@ -18,7 +19,7 @@ import com.squareup.picasso.Picasso
 
 class HeroesListAdapter(
     private val context: Context?,
-    private val heroesList: List<HeroDTO>,
+    val heroesList: MutableList<HeroDTO>,
     private val navController: NavController
 )
     : RecyclerView.Adapter<HeroesListAdapter.HeroViewHolder>() {
@@ -62,6 +63,14 @@ class HeroesListAdapter(
         Glide.with(context!!)
             .load(url)
             .into(view)
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun addData(tempList: List<HeroDTO>) {
+        for (hero in tempList) {
+            heroesList.add(hero)
+        }
+        notifyDataSetChanged()
     }
 
 }

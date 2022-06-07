@@ -18,13 +18,13 @@ class HeroesFragmentViewModel : ViewModel() {
         get() = _heroesList
 
     init {
-        getHeroes()
+        getHeroes("0")
     }
 
-    private fun getHeroes() {
+    fun getHeroes(offset: String) {
         val heroList = mutableListOf<HeroDTO>()
         viewModelScope.launch {
-            val tempList = repository.fetchHeroList()
+            val tempList = repository.fetchHeroList(offset)
             for (hero in tempList.data.hero) {
                 heroList.add(hero)
             }

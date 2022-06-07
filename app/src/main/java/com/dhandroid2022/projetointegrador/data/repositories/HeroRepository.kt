@@ -10,8 +10,8 @@ class HeroRepository {
 
     private val api = heroAPI
 
-    suspend fun fetchHeroList(): HeroResponse = withContext(Dispatchers.IO) {
+    suspend fun fetchHeroList(offset: String): HeroResponse = withContext(Dispatchers.IO) {
         val ts = System.currentTimeMillis()
-        api.fetchHeroList(ts, HashGenerator.getHash(ts))
+        api.fetchHeroList(ts, HashGenerator.getHash(ts), offset)
     }
 }

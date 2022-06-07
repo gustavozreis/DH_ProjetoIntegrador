@@ -6,10 +6,11 @@ import javax.crypto.Cipher.PUBLIC_KEY
 
 interface HeroAPI {
 
-    @GET("characters?apikey=${com.dhandroid2022.projetointegrador.data.utils.PUBLIC_KEY}&limit=40")
+    @GET("characters?apikey=${com.dhandroid2022.projetointegrador.data.utils.PUBLIC_KEY}&limit=100")
     suspend fun fetchHeroList(
         @Query("ts") ts: Long,
         @Query("hash") hash: String,
+        @Query("offset") offset: String,
     ): HeroResponse
 
 }

@@ -1,5 +1,5 @@
 package com.dhandroid2022.projetointegrador.data.heroDTO
 
-data class HeroResponse (
-    val data: DataDTO
+data class HeroResponse(
+    val data: HeroDTO
 )

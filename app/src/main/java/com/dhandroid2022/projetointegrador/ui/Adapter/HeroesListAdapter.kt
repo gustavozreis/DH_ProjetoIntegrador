@@ -24,6 +24,8 @@ class HeroesListAdapter(
 )
     : RecyclerView.Adapter<HeroesListAdapter.HeroViewHolder>() {
 
+    var adapterList = heroesList
+
     inner class HeroViewHolder(itemView: View)  : RecyclerView.ViewHolder(itemView) {
         val heroName: TextView = itemView.findViewById(R.id.heroes_list_item_name)
         val heroThumbnail: ImageView = itemView.findViewById(R.id.heroes_list_item_thumbnail)
@@ -39,6 +41,7 @@ class HeroesListAdapter(
 
     override fun onBindViewHolder(holder: HeroViewHolder, position: Int) {
         val heroName = heroesList[position].name
+        val heroID = heroesList[position].id
 
         val thumbnailUrl: String = heroesList[position].thumbnail.path + "." + heroesList[position].thumbnail.extension
         val thumbnailUrlWithS: String = StringBuilder(thumbnailUrl).insert(4, "s").toString()
@@ -49,7 +52,8 @@ class HeroesListAdapter(
         holder.heroThumbnail.setOnClickListener {
             val action = HomeFragmentDirections.actionHomeFragmentToHeroDetailFragment(
                 thumbnailUrlWithS,
-                heroName
+                heroName,
+                heroID.toString()
             )
             navController.navigate(action)
         }

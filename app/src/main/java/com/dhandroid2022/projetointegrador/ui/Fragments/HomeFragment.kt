@@ -3,12 +3,9 @@ package com.dhandroid2022.projetointegrador.ui.Fragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import com.dhandroid2022.projetointegrador.R
 import com.dhandroid2022.projetointegrador.ui.Adapter.ViewPagerAdapter
-import com.dhandroid2022.projetointegrador.ui.ViewModels.HeroesFragmentViewModel
 import com.google.android.material.tabs.TabLayout
 
 class HomeFragment : Fragment(R.layout.fragment_home) {

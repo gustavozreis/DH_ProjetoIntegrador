@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/black">
 
     <ImageView
         android:id="@+id/imageview_hero_thumbnail"
@@ -16,9 +17,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="16dp"
+        android:padding="20dp"
         android:text="CAPTAIN AMERICA"
         android:textColor="@color/white"
         android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/textview_hero_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingStart="45dp"
+        android:paddingEnd="45dp"
+        android:text="As the Norse God of thunder and lightning, Thor wields one of the greatest weapons ever made, the enchanted hammer Mjolnir. While others have described Thor as an over-muscled, oafish imbecile, he's quite smart and compassionate.  He's self-assured, and he would never, ever stop fighting for a worthwhile cause."
+        android:textColor="@color/white"
+        android:textSize="15sp" />
 
 </LinearLayout>

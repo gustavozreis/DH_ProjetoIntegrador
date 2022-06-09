@@ -1,10 +1,16 @@
 package com.dhandroid2022.projetointegrador.data.heroDTO
 
-import com.dhandroid2022.projetointegrador.data.comicDTO.ComicDTO
-import com.dhandroid2022.projetointegrador.data.heroDTO.attributesmodels.Thumbnail
+import com.dhandroid2022.projetointegrador.data.comicDTO.models.ComicsList
+import com.dhandroid2022.projetointegrador.data.heroDTO.models.Thumbnail
+import com.google.gson.annotations.SerializedName
 
 data class HeroDTO(
-    val id: String,
+    val id: Int,
     val name: String,
-    val thumbnail: Thumbnail
+    val description: String,
+    val thumbnail: Thumbnail,
+    val resourceURI: String,
+    @SerializedName("comics")
+    val comicsList: ComicsList,
+
 )

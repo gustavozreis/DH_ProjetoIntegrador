@@ -30,6 +30,8 @@ class HeroesListFragment : Fragment() {
 
     private var rvAdapter: HeroesListAdapter? = null
 
+    private var isLoading = false
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -65,6 +67,10 @@ class HeroesListFragment : Fragment() {
         viewModel.offset.observe(this.viewLifecycleOwner) { vmOffset ->
             fragOffset = vmOffset
         }
+
+        viewModel.isLoading.observe(this.viewLifecycleOwner) { isLoadingLiveData ->
+            isLoading = isLoadingLiveData
+        }
     }
 
     private fun setUpAdapter() {
@@ -83,7 +89,7 @@ class HeroesListFragment : Fragment() {
                     val lastItem = lastVisible +5 >= totalItemCount
 
                     if (totalItemCount > 0 && lastItem){
-                        if(fragOffset <= 1500 && offsetCheck == fragOffset && viewModel.heroesList.value!!.size >= offsetCheck)
+                        if(fragOffset <= 1500 && !isLoading)
                             viewModel.getHeroes()
                             offsetCheck += 100
                     }

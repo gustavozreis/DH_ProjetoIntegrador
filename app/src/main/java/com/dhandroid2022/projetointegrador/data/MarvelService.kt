@@ -3,8 +3,10 @@ package com.dhandroid2022.projetointegrador.data
 import android.util.Log
 import com.dhandroid2022.projetointegrador.data.heroDTO.HeroAPI
 import com.google.gson.GsonBuilder
+import com.google.gson.JsonElement
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

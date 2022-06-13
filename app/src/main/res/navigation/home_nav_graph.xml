@@ -23,5 +23,8 @@
             android:name="heroName"
             app:argType="string" />
         <argument android:name="heroID" />
+        <argument
+            android:name="heroDescription"
+            app:argType="string" />
     </fragment>
 </navigation>

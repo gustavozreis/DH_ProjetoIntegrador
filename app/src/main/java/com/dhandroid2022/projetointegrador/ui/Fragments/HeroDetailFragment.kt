@@ -33,7 +33,7 @@ class HeroDetailFragment : Fragment(R.layout.fragment_hero_detail) {
 
         setUpArgs()
         setUpBindings()
-        setUpObserver()
+        //setUpObserver()
         getHeroDetails(heroID)
         changeHeroDetails()
     }
@@ -44,7 +44,7 @@ class HeroDetailFragment : Fragment(R.layout.fragment_hero_detail) {
 
     private fun setUpObserver() {
         viewModel.hero.observe(this.viewLifecycleOwner) { hero ->
-            heroDescriptionView.text = hero.description
+            heroDescriptionView.setText(hero.description)
         }
     }
 
@@ -52,6 +52,7 @@ class HeroDetailFragment : Fragment(R.layout.fragment_hero_detail) {
         heroName = args.heroName
         heroThumbUrl = args.heroThumbUrl
         heroID = args.heroID
+        heroDescription = args.heroDescription
     }
 
     private fun changeHeroDetails() {
@@ -60,6 +61,7 @@ class HeroDetailFragment : Fragment(R.layout.fragment_hero_detail) {
                 .into(heroThumbnailView)
 
         heroNameView.text = heroName
+        heroDescriptionView.text = heroDescription
     }
 
     private fun setUpBindings() {

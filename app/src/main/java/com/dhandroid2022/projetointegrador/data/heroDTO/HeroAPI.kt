@@ -1,5 +1,6 @@
 package com.dhandroid2022.projetointegrador.data.heroDTO
 
+import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

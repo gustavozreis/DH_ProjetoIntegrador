@@ -90,4 +90,10 @@ dependencies {
 
     implementation 'androidx.fragment:fragment-ktx:1.4.1'
     implementation "androidx.activity:activity-ktx:1.4.0"
+
+    //paging3
+    implementation "androidx.paging:paging-runtime:3.2.0-alpha01"
+
+    // workmanager
+    implementation 'androidx.work:work-runtime-ktx:2.7.0'
 }

@@ -42,6 +42,7 @@ class HeroesListAdapter(
     override fun onBindViewHolder(holder: HeroViewHolder, position: Int) {
         val heroName = heroesList[position].name
         val heroID = heroesList[position].id
+        val heroDescription = heroesList[position].description
 
         val thumbnailUrl: String = heroesList[position].thumbnail.path + "." + heroesList[position].thumbnail.extension
         val thumbnailUrlWithS: String = StringBuilder(thumbnailUrl).insert(4, "s").toString()
@@ -53,7 +54,8 @@ class HeroesListAdapter(
             val action = HomeFragmentDirections.actionHomeFragmentToHeroDetailFragment(
                 thumbnailUrlWithS,
                 heroName,
-                heroID.toString()
+                heroID.toString(),
+                heroDescription,
             )
             navController.navigate(action)
         }

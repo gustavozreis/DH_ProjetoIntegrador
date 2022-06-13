@@ -24,11 +24,11 @@ class HeroesListFragmentViewModel : ViewModel() {
 
     var offset = MutableLiveData<Int>(0)
 
-    var loadingCheck = MutableLiveData<Boolean>(false)
+    var isLoading = MutableLiveData<Boolean>(false)
 
 
     init {
-        instatiateHeroList()
+        instantiateHeroList()
     }
 
     fun getHeroes() {
@@ -39,6 +39,7 @@ class HeroesListFragmentViewModel : ViewModel() {
         totalHeroList.addAll(heroesList.value!!)
         try {
             viewModelScope.launch {
+                isLoading.value = true
                 val tempList = repository.fetchHeroList(tempOffset.toString())
                 for (hero in tempList.data.hero) {
                     totalHeroList.add(hero)
@@ -46,6 +47,7 @@ class HeroesListFragmentViewModel : ViewModel() {
                 }
                 _heroesList.value = totalHeroList
                 _heroesToAdd.value = returnedHeroes
+                isLoading.value = false
             }
 
         } catch (e: Exception) {
@@ -54,7 +56,7 @@ class HeroesListFragmentViewModel : ViewModel() {
 
     }
 
-    private fun instatiateHeroList() {
+    private fun instantiateHeroList() {
         val heroList: MutableList<HeroDTO> = mutableListOf()
         viewModelScope.launch {
             val tempList = repository.fetchHeroList("0")

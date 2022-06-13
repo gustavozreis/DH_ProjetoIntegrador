@@ -1,4 +1,4 @@
-package com.dhandroid2022.projetointegrador.data.heroDTO.models
+package com.dhandroid2022.projetointegrador.data.utils
 
 /*
 ESSA CLASSE É UTILIZADA PARA RECUPERAR O LINK DA THUMBNAIL DOS HERÓIS,

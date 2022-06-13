@@ -1,7 +1,7 @@
 package com.dhandroid2022.projetointegrador.data.heroDTO
 
 import com.dhandroid2022.projetointegrador.data.comicDTO.models.ComicsList
-import com.dhandroid2022.projetointegrador.data.heroDTO.models.Thumbnail
+import com.dhandroid2022.projetointegrador.data.utils.Thumbnail
 import com.google.gson.annotations.SerializedName
 
 data class HeroDTO(
@@ -13,4 +13,4 @@ data class HeroDTO(
     @SerializedName("comics")
     val comicsList: ComicsList,
 
-)
+    )

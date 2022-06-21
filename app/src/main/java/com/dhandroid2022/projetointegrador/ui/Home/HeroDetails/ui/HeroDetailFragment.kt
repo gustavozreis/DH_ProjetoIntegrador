@@ -1,6 +1,5 @@
-package com.dhandroid2022.projetointegrador.ui.Activities
+package com.dhandroid2022.projetointegrador.ui.Home.HeroDetails.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -10,8 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.dhandroid2022.projetointegrador.R
-import com.dhandroid2022.projetointegrador.ui.ViewModels.HeroDetailsFragmentViewModel
-import com.dhandroid2022.projetointegrador.ui.ViewModels.HeroesListFragmentViewModel
+import com.dhandroid2022.projetointegrador.ui.Home.HeroDetails.viewmodel.HeroDetailsFragmentViewModel
 
 class HeroDetailFragment : Fragment(R.layout.fragment_hero_detail) {
 
@@ -26,7 +24,7 @@ class HeroDetailFragment : Fragment(R.layout.fragment_hero_detail) {
 
     private val viewModel: HeroDetailsFragmentViewModel by viewModels()
 
-    private val args: HeroDetailFragmentArgs by navArgs()
+    private val args: com.dhandroid2022.projetointegrador.ui.Home.HeroDetails.ui.HeroDetailFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

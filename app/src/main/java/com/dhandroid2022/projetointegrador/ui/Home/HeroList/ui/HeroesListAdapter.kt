@@ -1,9 +1,7 @@
-package com.dhandroid2022.projetointegrador.ui.Adapter
+package com.dhandroid2022.projetointegrador.ui.Home.HeroList.ui
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,8 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dhandroid2022.projetointegrador.R
 import com.dhandroid2022.projetointegrador.data.heroDTO.HeroDTO
-import com.dhandroid2022.projetointegrador.ui.Fragments.HomeFragmentDirections
-import com.squareup.picasso.Picasso
+import com.dhandroid2022.projetointegrador.ui.Home.HomeFragmentDirections
 
 class HeroesListAdapter(
     private val context: Context?,

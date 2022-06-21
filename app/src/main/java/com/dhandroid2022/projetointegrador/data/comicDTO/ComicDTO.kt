@@ -7,4 +7,5 @@ data class ComicDTO(
     val resourceURI: String,
     val title: String,
     val thumbnail: Thumbnail,
+    val description: String,
 )

@@ -1,11 +1,12 @@
-package com.dhandroid2022.projetointegrador.ui.Fragments
+package com.dhandroid2022.projetointegrador.ui.Home
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.dhandroid2022.projetointegrador.R
-import com.dhandroid2022.projetointegrador.ui.Adapter.ViewPagerAdapter
+import com.dhandroid2022.projetointegrador.ui.Home.ComicList.ComicsListFragment
+import com.dhandroid2022.projetointegrador.ui.Home.HeroList.ui.HeroesListFragment
 import com.google.android.material.tabs.TabLayout
 
 class HomeFragment : Fragment(R.layout.fragment_home) {

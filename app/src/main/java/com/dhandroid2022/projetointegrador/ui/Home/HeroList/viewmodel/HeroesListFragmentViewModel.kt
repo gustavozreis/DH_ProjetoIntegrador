@@ -1,13 +1,10 @@
-package com.dhandroid2022.projetointegrador.ui.ViewModels
+package com.dhandroid2022.projetointegrador.ui.Home.HeroList.viewmodel
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dhandroid2022.projetointegrador.data.heroDTO.HeroDTO
 import com.dhandroid2022.projetointegrador.data.repositories.HeroRepository
-import com.dhandroid2022.projetointegrador.ui.Adapter.HeroesListAdapter
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class HeroesListFragmentViewModel : ViewModel() {

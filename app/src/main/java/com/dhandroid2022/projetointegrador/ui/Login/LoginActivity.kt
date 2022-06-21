@@ -1,12 +1,10 @@
-package com.dhandroid2022.projetointegrador.ui.Activities
+package com.dhandroid2022.projetointegrador.ui.Login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
-import com.dhandroid2022.projetointegrador.ui.Adapter.ViewPagerAdapter
+import com.dhandroid2022.projetointegrador.ui.Home.ViewPagerAdapter
 import com.dhandroid2022.projetointegrador.R
-import com.dhandroid2022.projetointegrador.ui.Fragments.Login_frag
-import com.dhandroid2022.projetointegrador.ui.Fragments.Sign_in_frag
 import com.google.android.material.tabs.TabLayout
 
 class LoginActivity : AppCompatActivity() {

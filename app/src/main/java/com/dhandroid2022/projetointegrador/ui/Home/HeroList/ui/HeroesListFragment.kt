@@ -1,4 +1,4 @@
-package com.dhandroid2022.projetointegrador.ui.Fragments
+package com.dhandroid2022.projetointegrador.ui.Home.HeroList.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,10 +9,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.dhandroid2022.projetointegrador.ui.Adapter.HeroesListAdapter
 import com.dhandroid2022.projetointegrador.data.heroDTO.HeroDTO
 import com.dhandroid2022.projetointegrador.databinding.FragmentHeroesListBinding
-import com.dhandroid2022.projetointegrador.ui.ViewModels.HeroesListFragmentViewModel
+import com.dhandroid2022.projetointegrador.ui.Home.HeroList.viewmodel.HeroesListFragmentViewModel
 
 class HeroesListFragment : Fragment() {
 

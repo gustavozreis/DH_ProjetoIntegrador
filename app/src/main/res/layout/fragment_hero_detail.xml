@@ -8,7 +8,7 @@
     <ImageView
         android:id="@+id/imageview_hero_thumbnail"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         android:scaleType="centerCrop"
         android:src="@drawable/captainamerica" />
 
@@ -32,5 +32,25 @@
         android:text="As the Norse God of thunder and lightning, Thor wields one of the greatest weapons ever made, the enchanted hammer Mjolnir. While others have described Thor as an over-muscled, oafish imbecile, he's quite smart and compassionate.  He's self-assured, and he would never, ever stop fighting for a worthwhile cause."
         android:textColor="@color/white"
         android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btn_favorite"
+        android:layout_margin="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adicionar \naos favoritos"
+        android:layout_gravity="center"
+        android:textSize="12dp"/>
+
+    <TextView
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aparece em:"
+        android:layout_gravity="center"/>
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

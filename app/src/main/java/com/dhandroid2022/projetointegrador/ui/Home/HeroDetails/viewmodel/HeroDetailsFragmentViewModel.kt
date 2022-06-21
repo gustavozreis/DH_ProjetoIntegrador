@@ -1,4 +1,4 @@
-package com.dhandroid2022.projetointegrador.ui.ViewModels
+package com.dhandroid2022.projetointegrador.ui.Home.HeroDetails.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class HeroDataDTO (
     @SerializedName("results")
-    val hero: List<HeroDTO>,
+    val heroList: List<HeroDTO>,
 )

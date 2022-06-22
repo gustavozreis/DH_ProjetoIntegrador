@@ -38,7 +38,7 @@ class HeroesListFragmentViewModel : ViewModel() {
             viewModelScope.launch {
                 isLoading.value = true
                 val tempList = repository.fetchHeroList(tempOffset.toString())
-                for (hero in tempList.data.hero) {
+                for (hero in tempList.data.heroList) {
                     totalHeroList.add(hero)
                     returnedHeroes.add(hero)
                 }
@@ -57,7 +57,7 @@ class HeroesListFragmentViewModel : ViewModel() {
         val heroList: MutableList<HeroDTO> = mutableListOf()
         viewModelScope.launch {
             val tempList = repository.fetchHeroList("0")
-            for (hero in tempList.data.hero) {
+            for (hero in tempList.data.heroList) {
                 heroList.add(hero)
             }
             _heroesList.value = heroList

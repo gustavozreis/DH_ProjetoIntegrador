@@ -1,16 +1,11 @@
 package com.dhandroid2022.projetointegrador.data.repositories
 
-import androidx.work.WorkManager
 import com.dhandroid2022.projetointegrador.data.heroAPI
 import com.dhandroid2022.projetointegrador.data.heroDTO.HeroListResponse
 import com.dhandroid2022.projetointegrador.data.heroDTO.HeroResponse
 import com.dhandroid2022.projetointegrador.data.utils.HashGenerator
-import com.google.gson.JsonElement
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class HeroRepository {
 

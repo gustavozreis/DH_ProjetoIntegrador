@@ -23,7 +23,7 @@ class HeroesListAdapter(
 
     var adapterList = heroesList
 
-    inner class HeroViewHolder(itemView: View)  : RecyclerView.ViewHolder(itemView) {
+    inner class HeroViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val heroName: TextView = itemView.findViewById(R.id.heroes_list_item_name)
         val heroThumbnail: ImageView = itemView.findViewById(R.id.heroes_list_item_thumbnail)
     }
@@ -41,7 +41,7 @@ class HeroesListAdapter(
         val heroID = heroesList[position].id
         val heroDescription = heroesList[position].description
 
-        val thumbnailUrl: String = heroesList[position].thumbnail.path + "." + heroesList[position].thumbnail.extension
+        val thumbnailUrl: String = heroesList[position].thumbnail.getUrl()
         val thumbnailUrlWithS: String = StringBuilder(thumbnailUrl).insert(4, "s").toString()
 
         holder.heroName.text = heroName

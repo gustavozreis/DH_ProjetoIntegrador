@@ -1,6 +1,7 @@
 package com.dhandroid2022.projetointegrador.data
 
 import android.util.Log
+import com.dhandroid2022.projetointegrador.data.comicDTO.ComicAPI
 import com.dhandroid2022.projetointegrador.data.heroDTO.HeroAPI
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonElement
@@ -29,3 +30,4 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 val heroAPI: HeroAPI = retrofit.create(HeroAPI::class.java)
+val comicAPI: ComicAPI = retrofit.create(ComicAPI::class.java)

@@ -4,6 +4,7 @@ import com.dhandroid2022.projetointegrador.data.utils.Thumbnail
 
 data class ComicDTO(
     val id: String,
+    val name: String,
     val resourceURI: String,
     val title: String,
     val thumbnail: Thumbnail,

@@ -9,8 +9,8 @@ import retrofit2.http.Query
 interface ComicAPI {
 
     @GET("characters/{characterId}/comics?apikey=${com.dhandroid2022.projetointegrador.data.utils.PUBLIC_KEY}&limit=100")
-    suspend fun fetchHeroComicList(
-        @Query("characterId") heroID: String,
+    suspend fun fetchComicList(
+        @Path("characterId") heroID: String,
         @Query("ts") ts: Long,
         @Query("hash") hash: String,
         @Query("offset") offset: String,

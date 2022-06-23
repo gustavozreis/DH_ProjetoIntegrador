@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.dhandroid2022.projetointegrador.R
-import com.dhandroid2022.projetointegrador.ui.Home.ComicList.ComicsListFragment
+import com.dhandroid2022.projetointegrador.ui.Home.ComicDetails.ComicDetailsFragment
 import com.dhandroid2022.projetointegrador.ui.Home.HeroList.ui.HeroesListFragment
 import com.google.android.material.tabs.TabLayout
 
@@ -24,7 +24,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val viewPagerAdapter = ViewPagerAdapter(childFragmentManager)
         viewPagerAdapter.apply {
             this.add(HeroesListFragment(), "Heroes")
-            this.add(ComicsListFragment(), "Comics")
+            this.add(ComicDetailsFragment(), "Comics")
         }
 
         viewPager = requireView().findViewById(R.id.home_view_pager)

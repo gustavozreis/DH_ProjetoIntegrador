@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dhandroid2022.projetointegrador.R
@@ -13,6 +14,7 @@ import com.dhandroid2022.projetointegrador.data.comicDTO.ComicDTO
 class HeroDetailFragmentAdapter(
     private val context: Context,
     private val comicList: List<ComicDTO>,
+    private val navController: NavController,
 ) : RecyclerView.Adapter<HeroDetailFragmentAdapter.ComicListViewHolder>() {
 
     inner class ComicListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -32,9 +34,23 @@ class HeroDetailFragmentAdapter(
         holder: ComicListViewHolder,
         position: Int,
     ) {
+        val comicTitle = comicList[position].title
+        val comicId = comicList[position].id
+
         val comicUrl = comicList[position].thumbnail.getUrl()
         val thumbnailUrlWithS: String = StringBuilder(comicUrl).insert(4, "s").toString()
+
         insertImageFromUrl(thumbnailUrlWithS, holder.comicThumbnail)
+
+        holder.comicThumbnail.setOnClickListener {
+            val action = HeroDetailFragmentDirections.actionHeroDetailFragmentToComicDetailFragment(
+                thumbnailUrlWithS,
+                comicTitle,
+                comicId.toString(),
+            )
+            navController.navigate(action)
+        }
+
     }
 
     override fun getItemCount(): Int = comicList.size

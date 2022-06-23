@@ -26,5 +26,22 @@
         <argument
             android:name="heroDescription"
             app:argType="string" />
+        <action
+            android:id="@+id/action_heroDetailFragment_to_comicDetailFragment"
+            app:destination="@id/comicDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/comicDetailsFragment"
+        android:name="com.dhandroid2022.projetointegrador.ui.Home.ComicDetails.ComicDetailsFragment"
+        android:label="ComicDetailsFragment">
+        <argument
+            android:name="comicThumbUrl"
+            app:argType="string" />
+        <argument
+            android:name="comicTitle"
+            app:argType="string" />
+        <argument
+            android:name="comicId"
+            app:argType="string" />
     </fragment>
 </navigation>

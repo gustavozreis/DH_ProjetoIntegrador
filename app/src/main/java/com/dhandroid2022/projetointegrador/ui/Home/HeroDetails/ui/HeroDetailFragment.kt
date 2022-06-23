@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -64,7 +65,7 @@ class HeroDetailFragment : Fragment(R.layout.fragment_hero_detail) {
     }
 
     private fun setUpComicRecyclerView(list: MutableList<ComicDTO>) {
-        val rvAdapter = HeroDetailFragmentAdapter(requireContext(), list)
+        val rvAdapter = HeroDetailFragmentAdapter(requireContext(), list, findNavController())
         comicsRecyclerView.adapter = rvAdapter
     }
 

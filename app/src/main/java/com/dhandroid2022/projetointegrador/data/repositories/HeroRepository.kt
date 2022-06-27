@@ -1,13 +1,18 @@
 package com.dhandroid2022.projetointegrador.data.repositories
 
+import android.content.ContentValues
+import android.content.Context
+import androidx.room.Room
+import com.dhandroid2022.projetointegrador.data.favorites.*
 import com.dhandroid2022.projetointegrador.data.heroAPI
 import com.dhandroid2022.projetointegrador.data.heroDTO.HeroListResponse
 import com.dhandroid2022.projetointegrador.data.heroDTO.HeroResponse
 import com.dhandroid2022.projetointegrador.data.utils.HashGenerator
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
 
-class HeroRepository {
+class HeroRepository() {
 
     private val api = heroAPI
 

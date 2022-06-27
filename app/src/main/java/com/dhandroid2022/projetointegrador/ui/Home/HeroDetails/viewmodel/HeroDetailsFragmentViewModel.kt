@@ -1,15 +1,22 @@
 package com.dhandroid2022.projetointegrador.ui.Home.HeroDetails.viewmodel
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import android.content.ContentValues
+import android.content.Context
+import android.content.Context.MODE_PRIVATE
+import androidx.lifecycle.*
+import com.bumptech.glide.Glide.init
 import com.dhandroid2022.projetointegrador.data.comicDTO.ComicDTO
+import com.dhandroid2022.projetointegrador.data.favorites.DBHelper
+import com.dhandroid2022.projetointegrador.data.favorites.FavoriteHero
+import com.dhandroid2022.projetointegrador.data.favorites.FavoriteHeroDAO
+import com.dhandroid2022.projetointegrador.data.favorites.FeedReaderContract
 import com.dhandroid2022.projetointegrador.data.heroDTO.HeroDTO
 import com.dhandroid2022.projetointegrador.data.repositories.ComicRepository
 import com.dhandroid2022.projetointegrador.data.repositories.HeroRepository
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
 
-class HeroDetailsFragmentViewModel : ViewModel() {
+class HeroDetailsFragmentViewModel(private val favoriteHeroDAO: FavoriteHeroDAO) : ViewModel() {
 
     private val heroRepository = HeroRepository()
     private val comicRepository = ComicRepository()
@@ -23,6 +30,14 @@ class HeroDetailsFragmentViewModel : ViewModel() {
         get() = _comicList
 
     private var heroIdFromArgs: String = ""
+
+    private var _favoritesList = MutableLiveData<MutableList<FavoriteHero>>(mutableListOf())
+    val favoritesList: MutableLiveData<MutableList<FavoriteHero>>
+        get() = _favoritesList
+
+    init {
+        getFavoritesList()
+    }
 
     fun getHeroDetails(heroID: String) {
         var hero: HeroDTO
@@ -50,7 +65,50 @@ class HeroDetailsFragmentViewModel : ViewModel() {
         } catch (e: Exception) {
 
         }
+    }
+
+    fun addToFavorites(
+        heroId: String,
+        heroName: String,
+        heroThumbUrl: String,
+    ) {
+
+        viewModelScope.launch {
+            val favToAdd = FavoriteHero(
+                heroId.toInt(),
+                heroName,
+                heroThumbUrl
+            )
+            favoriteHeroDAO.insert(favToAdd)
+            getFavoritesList()
+        }
+    }
+
+    fun removeFromFavorites(heroID: String) {
+        viewModelScope.launch {
+            favoriteHeroDAO.deleteHero(heroID.toInt())
+            getFavoritesList()
+        }
+    }
+
+    fun getFavoritesList() {
+        viewModelScope.launch {
+            val tempList = favoriteHeroDAO.getAll()
+            _favoritesList.value = tempList
+        }
 
     }
 
+}
+
+class HeroDetailsFragmentViewModelFactory(private val favoriteHeroDao: FavoriteHeroDAO) :
+    ViewModelProvider.Factory {
+
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(HeroDetailsFragmentViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return HeroDetailsFragmentViewModel(favoriteHeroDao) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
 }

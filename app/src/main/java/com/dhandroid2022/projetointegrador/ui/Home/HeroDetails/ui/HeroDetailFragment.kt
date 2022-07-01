@@ -1,5 +1,4 @@
 package com.dhandroid2022.projetointegrador.ui.Home.HeroDetails.ui
-
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -11,14 +10,15 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.dhandroid2022.projetointegrador.R
 import com.dhandroid2022.projetointegrador.data.comicDTO.ComicDTO
 import com.dhandroid2022.projetointegrador.data.favorites.FavoriteHero
 import com.dhandroid2022.projetointegrador.data.favorites.FavoritesApplication
 import com.dhandroid2022.projetointegrador.ui.Home.HeroDetails.viewmodel.HeroDetailsFragmentViewModel
 import com.dhandroid2022.projetointegrador.ui.Home.HeroDetails.viewmodel.HeroDetailsFragmentViewModelFactory
+import com.facebook.shimmer.ShimmerFrameLayout
 
-class HeroDetailFragment : Fragment(R.layout.fragment_hero_detail) {
+
+class HeroDetailFragment : Fragment(com.dhandroid2022.projetointegrador.R.layout.fragment_hero_detail) {
 
     private lateinit var heroThumbnailView: ImageView
     private lateinit var heroNameView: TextView
@@ -111,11 +111,11 @@ class HeroDetailFragment : Fragment(R.layout.fragment_hero_detail) {
     }
 
     private fun setUpBindings() {
-        heroThumbnailView = requireView().findViewById(R.id.imageview_hero_thumbnail)
-        heroNameView = requireView().findViewById(R.id.textview_hero_name)
-        heroDescriptionView = requireView().findViewById(R.id.textview_hero_description)
-        comicsRecyclerView = requireView().findViewById(R.id.rv_comic_list)
-        addToFavoritesBtn = requireView().findViewById(R.id.btn_favorite)
+        heroThumbnailView = requireView().findViewById(com.dhandroid2022.projetointegrador.R.id.imageview_hero_thumbnail)
+        heroNameView = requireView().findViewById(com.dhandroid2022.projetointegrador.R.id.textview_hero_name)
+        heroDescriptionView = requireView().findViewById(com.dhandroid2022.projetointegrador.R.id.textview_hero_description)
+        comicsRecyclerView = requireView().findViewById(com.dhandroid2022.projetointegrador.R.id.rv_comic_list)
+        addToFavoritesBtn = requireView().findViewById(com.dhandroid2022.projetointegrador.R.id.btn_favorite)
     }
 
     private fun addToFavorites() {

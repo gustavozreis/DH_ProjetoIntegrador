@@ -1,19 +1,23 @@
 package com.dhandroid2022.projetointegrador.ui.Home.HeroList.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.dhandroid2022.projetointegrador.R
 import com.dhandroid2022.projetointegrador.data.heroDTO.HeroDTO
 import com.dhandroid2022.projetointegrador.databinding.FragmentHeroesListBinding
 import com.dhandroid2022.projetointegrador.ui.Home.HeroList.viewmodel.HeroesListFragmentViewModel
 
-class HeroesListFragment : Fragment() {
+class HeroesListFragment : Fragment(R.layout.fragment_heroes_list) {
 
     private lateinit var recyclerView: RecyclerView
 

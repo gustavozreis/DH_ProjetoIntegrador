@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_nav_graph_container"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.dhandroid2022.projetointegrador.ui.Home.HomeFragment"
+        android:label="home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_heroDetailFragment"
+            app:destination="@id/heroDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/heroDetailFragment"
+        android:name="com.dhandroid2022.projetointegrador.ui.Home.HeroDetails.ui.HeroDetailFragment"
+        android:label="HeroDetailFragment" >
+        <argument
+            android:name="heroThumbUrl"
+            app:argType="string" />
+        <argument
+            android:name="heroName"
+            app:argType="string" />
+        <argument android:name="heroID" />
+        <argument
+            android:name="heroDescription"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_heroDetailFragment_to_comicDetailFragment"
+            app:destination="@id/comicDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/comicDetailsFragment"
+        android:name="com.dhandroid2022.projetointegrador.ui.Home.ComicDetails.ComicDetailsFragment"
+        android:label="ComicDetailsFragment">
+        <argument
+            android:name="comicThumbUrl"
+            app:argType="string" />
+        <argument
+            android:name="comicTitle"
+            app:argType="string" />
+        <argument
+            android:name="comicId"
+            app:argType="string" />
+    </fragment>
+</navigation>

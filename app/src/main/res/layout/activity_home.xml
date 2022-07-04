@@ -4,22 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Activities.HomeActivity"
+    tools:context=".ui.Home.HomeActivity"
     android:orientation="vertical"
     android:background="@color/black">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewpager_home"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_graph_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.google.android.material.tabs.TabLayout
-            app:tabTextColor="@color/white"
-            android:id="@+id/tablayout_home"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/black" />
-
-    </androidx.viewpager.widget.ViewPager>
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/home_nav_graph" />
 
 </LinearLayout>

@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".data.favorites.FavoritesApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,13 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoIntegrador">
         <activity
-            android:name="com.dhandroid2022.projetointegrador.ui.Activities.HeroDetailActivity"
+            android:name="com.dhandroid2022.projetointegrador.ui.Home.HomeActivity"
             android:exported="false" />
         <activity
-            android:name="com.dhandroid2022.projetointegrador.ui.Activities.HomeActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.dhandroid2022.projetointegrador.ui.Activities.LoginActivity"
+            android:name="com.dhandroid2022.projetointegrador.acess.ui.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -4,7 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Estudos Digital House/DH_ProjetoIntegrador/app/src/main/res/layout/activity_hero_detail.xml" value="0.3625" />
+        <entry key="..\:/Estudos Digital House/DH_ProjetoIntegrador/app/src/main/res/layout/activity_home.xml" value="0.3625" />
+        <entry key="..\:/Estudos Digital House/DH_ProjetoIntegrador/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Estudos Digital House/DH_ProjetoIntegrador/app/src/main/res/layout/login_frag.xml" value="0.3625" />
+        <entry key="..\:/Estudos Digital House/DH_ProjetoIntegrador/app/src/main/res/layout/register_frag.xml" value="0.3625" />
         <entry key="..\:/EstudosDH/DH_ProjetoIntegrador/app/src/main/res/layout/activity_home.xml" value="0.3625" />
         <entry key="..\:/EstudosDH/DH_ProjetoIntegrador/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/EstudosDH/DH_ProjetoIntegrador/app/src/main/res/layout/fragment_login.xml" value="0.3484375" />
@@ -18,21 +21,6 @@
         <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject/app/src/main/res/layout/fragment_hero_detail.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject/app/src/main/res/layout/fragment_heroes_list.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject/app/src/main/res/layout/fragment_heroes_list_item.xml" value="0.33177083333333335" />
-        <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1485" />
-        <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject2/app/src/main/res/drawable/shimmer_thumbnail.xml" value="0.1" />
-        <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject2/app/src/main/res/layout/activity_hero_detail.xml" value="0.33177083333333335" />
-        <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject2/app/src/main/res/layout/activity_home.xml" value="0.33177083333333335" />
-        <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject2/app/src/main/res/layout/effect_shimmer.xml" value="0.1" />
-        <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject2/app/src/main/res/layout/effect_shimmer_thumbnail.xml" value="0.5751953125" />
-        <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject2/app/src/main/res/layout/fragment_comic_detail.xml" value="0.33177083333333335" />
-        <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject2/app/src/main/res/layout/fragment_favorites.xml" value="0.15104166666666666" />
-        <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject2/app/src/main/res/layout/fragment_hero_detail.xml" value="0.143954802259887" />
-        <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject2/app/src/main/res/layout/fragment_hero_details_comic_list.xml" value="0.2722222222222222" />
-        <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject2/app/src/main/res/layout/fragment_hero_details_comic_list_item.xml" value="0.2722222222222222" />
-        <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject2/app/src/main/res/layout/fragment_heroes_list.xml" value="0.33177083333333335" />
-        <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject2/app/src/main/res/layout/fragment_heroes_list_item.xml" value="0.2462962962962963" />
-        <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject2/app/src/main/res/layout/fragment_home.xml" value="0.33177083333333335" />
-        <entry key="..\:/Users/gzrei/Desktop/PROGRAMACAO/PROJETO-INTEGRADOR/AppProject2/app/src/main/res/layout/shimmer_effect_thumbnail.xml" value="0.22239583333333332" />
       </map>
     </option>
   </component>

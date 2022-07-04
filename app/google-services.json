@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "91014945175",
+    "project_id": "projetointegrador-f19f8",
+    "storage_bucket": "projetointegrador-f19f8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91014945175:android:bf7cdfd9eea1346f02ccd2",
+        "android_client_info": {
+          "package_name": "com.dhandroid2022.projetointegrador"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "91014945175-59fsmdo29ddrqm15sttos8ohhpp5r2gt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dhandroid2022.projetointegrador",
+            "certificate_hash": "b87d1c464f3c15e7519d42cebe976e1bce3cfbe1"
+          }
+        },
+        {
+          "client_id": "91014945175-g3v7o57s5of1r2br752r2n175je1rdj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJvqQWwqqi-9VSGZz2E0cXgZzZMxxj_RA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "91014945175-g3v7o57s5of1r2br752r2n175je1rdj7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

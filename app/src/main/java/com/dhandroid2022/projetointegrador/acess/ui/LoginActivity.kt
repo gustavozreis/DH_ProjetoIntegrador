@@ -1,4 +1,4 @@
-package com.dhandroid2022.projetointegrador.ui.Login
+package com.dhandroid2022.projetointegrador.acess.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,8 +13,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val adapter = ViewPagerAdapter(supportFragmentManager)
-        adapter.add(Login_frag(), "Entrar")
-        adapter.add(Sign_in_frag(), "Registrar")
+        adapter.add(LoginFrag(), "Entrar")
+        adapter.add(RegisterFrag(), "Registrar")
 
         val pager = findViewById<ViewPager>(R.id.myviewpager)
         pager.adapter = adapter

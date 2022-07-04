@@ -107,7 +107,6 @@ class HeroDetailFragment : Fragment(com.dhandroid2022.projetointegrador.R.layout
         } else {
             heroDescriptionView.text = "Sem descrição."
         }
-
     }
 
     private fun setUpBindings() {
@@ -119,7 +118,7 @@ class HeroDetailFragment : Fragment(com.dhandroid2022.projetointegrador.R.layout
     }
 
     private fun addToFavorites() {
-        viewModel.addToFavorites(heroID, heroName, heroThumbUrl)
+        viewModel.addToFavorites(heroID, heroName, heroThumbUrl, heroDescription)
     }
 
     private fun removeFromFavorites() {
@@ -148,10 +147,6 @@ class HeroDetailFragment : Fragment(com.dhandroid2022.projetointegrador.R.layout
                 addToFavorites()
                 favButton.text = "REMOVER DOS FAVORITOS"
             }
-
-
         }
-
-
     }
 }

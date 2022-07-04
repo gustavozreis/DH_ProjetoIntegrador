@@ -71,13 +71,16 @@ class HeroDetailsFragmentViewModel(private val favoriteHeroDAO: FavoriteHeroDAO)
         heroId: String,
         heroName: String,
         heroThumbUrl: String,
+        heroDescription: String,
     ) {
 
         viewModelScope.launch {
             val favToAdd = FavoriteHero(
                 heroId.toInt(),
                 heroName,
-                heroThumbUrl
+                heroThumbUrl,
+                heroDescription,
+
             )
             favoriteHeroDAO.insert(favToAdd)
             getFavoritesList()

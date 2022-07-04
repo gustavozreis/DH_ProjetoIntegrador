@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_homeFragment_to_heroDetailFragment"
             app:destination="@id/heroDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_comicDetailsFragment"
+            app:destination="@id/comicDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/heroDetailFragment"

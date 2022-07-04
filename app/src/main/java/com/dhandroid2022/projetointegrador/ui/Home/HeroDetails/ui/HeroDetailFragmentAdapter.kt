@@ -50,7 +50,6 @@ class HeroDetailFragmentAdapter(
         val thumbnailUrlWithS: String = StringBuilder(comicUrl).insert(4, "s").toString()
 
         insertImageFromUrl(thumbnailUrlWithS, holder.comicThumbnailShimmer, holder)
-        //holder.shimmerEffect.hideShimmer()
 
         holder.comicThumbnailShimmer.setOnClickListener {
             val action = HeroDetailFragmentDirections.actionHeroDetailFragmentToComicDetailFragment(
@@ -68,11 +67,11 @@ class HeroDetailFragmentAdapter(
     private fun insertImageFromUrl(
         url: String,
         view: ImageView,
-        holder: ComicListViewHolder
-    ){
+        holder: ComicListViewHolder,
+    ) {
         Glide.with(context)
             .load(url)
-            .listener(object: RequestListener<Drawable> {
+            .listener(object : RequestListener<Drawable> {
                 override fun onLoadFailed(
                     e: GlideException?,
                     model: Any?,

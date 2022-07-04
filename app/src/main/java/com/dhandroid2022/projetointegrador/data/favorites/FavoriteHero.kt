@@ -12,6 +12,8 @@ data class FavoriteHero(
     val name: String,
     @ColumnInfo(name = "THUMB_URL")
     val thumbUrl: String,
+    @ColumnInfo(name = "DESCRIPTION")
+    val description: String,
 ) {
 
 }

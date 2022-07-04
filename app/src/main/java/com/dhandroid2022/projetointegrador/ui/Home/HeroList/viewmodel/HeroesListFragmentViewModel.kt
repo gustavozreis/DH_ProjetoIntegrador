@@ -23,7 +23,6 @@ class HeroesListFragmentViewModel : ViewModel() {
 
     var isLoading = MutableLiveData<Boolean>(false)
 
-
     init {
         instantiateHeroList()
     }

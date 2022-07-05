@@ -47,11 +47,6 @@ class HeroDetailsFragmentViewModel(private val favoriteHeroDAO: FavoriteHeroDAO)
         }
     }
 
-    fun getHeroIdFromArgs(heroID: String) {
-        heroIdFromArgs = heroID
-        getComicList(heroID)
-    }
-
     fun getComicList(heroID: String) {
         var comicList: MutableList<ComicDTO> = mutableListOf()
         try {
@@ -94,12 +89,32 @@ class HeroDetailsFragmentViewModel(private val favoriteHeroDAO: FavoriteHeroDAO)
         }
     }
 
-    fun getFavoritesList() {
+    private fun getFavoritesList() {
         viewModelScope.launch {
             val tempList = favoriteHeroDAO.getAll()
             _favoritesList.value = tempList
         }
 
+    }
+
+    fun createPowers(id: String) : List<String> {
+
+        val powerList = mutableListOf<String>()
+
+        val sString = id.substring(3).toInt()
+        val powerTotal = (sString * 133).toString()
+
+        val power = "${powerTotal[0]}${powerTotal[1]}"
+        val dextery = "${powerTotal[2]}${powerTotal[3]}"
+        val inteligence = "${powerTotal[4]}${powerTotal[5]}"
+
+        powerList.apply {
+            add(power)
+            add(dextery)
+            add(inteligence)
+        }
+
+        return powerList
     }
 
 }

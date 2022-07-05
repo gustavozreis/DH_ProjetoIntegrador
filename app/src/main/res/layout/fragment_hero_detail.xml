@@ -34,6 +34,91 @@
                 android:textColor="@color/white"
                 android:textSize="25sp" />
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="POWER"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_power"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="89"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DEXTERY"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_dextery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="89"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="INTEL"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_intel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="89"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/textview_hero_description"
                 android:layout_width="match_parent"
@@ -51,14 +136,15 @@
                 android:layout_height="41dp"
                 android:layout_gravity="center"
                 android:layout_margin="16dp"
-                android:text="Adicionar aos favoritos"
-                android:textSize="10dp" />
+                android:text="Add to Favorites"
+                android:textSize="10dp"
+                android:backgroundTint="@color/red"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Aparece em:"
+                android:text="Stories:"
                 android:textColor="@color/white" />
 
             <androidx.recyclerview.widget.RecyclerView

@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.dhandroid2022.projetointegrador.R
 import com.dhandroid2022.projetointegrador.data.comicDTO.ComicDTO
 import com.dhandroid2022.projetointegrador.data.favorites.FavoriteHero
 import com.dhandroid2022.projetointegrador.data.favorites.FavoritesApplication
@@ -24,6 +25,10 @@ class HeroDetailFragment : Fragment(com.dhandroid2022.projetointegrador.R.layout
     private lateinit var heroNameView: TextView
     private lateinit var heroDescriptionView: TextView
     private lateinit var addToFavoritesBtn: Button
+
+    private lateinit var tvPower: TextView
+    private lateinit var tvDextery: TextView
+    private lateinit var tvIntel: TextView
 
     private lateinit var heroName: String
     private lateinit var heroThumbUrl: String
@@ -105,8 +110,14 @@ class HeroDetailFragment : Fragment(com.dhandroid2022.projetointegrador.R.layout
         if(heroDescription != "") {
             heroDescriptionView.text = heroDescription
         } else {
-            heroDescriptionView.text = "Sem descrição."
+            heroDescriptionView.text = "No description."
         }
+
+        val powerList: List<String> = viewModel.createPowers(heroID)
+        tvPower.text = powerList[0]
+        tvDextery.text = powerList[1]
+        tvIntel.text = powerList[2]
+
     }
 
     private fun setUpBindings() {
@@ -115,6 +126,9 @@ class HeroDetailFragment : Fragment(com.dhandroid2022.projetointegrador.R.layout
         heroDescriptionView = requireView().findViewById(com.dhandroid2022.projetointegrador.R.id.textview_hero_description)
         comicsRecyclerView = requireView().findViewById(com.dhandroid2022.projetointegrador.R.id.rv_comic_list)
         addToFavoritesBtn = requireView().findViewById(com.dhandroid2022.projetointegrador.R.id.btn_favorite)
+        tvPower = requireView().findViewById(R.id.tv_power)
+        tvDextery = requireView().findViewById(R.id.tv_dextery)
+        tvIntel = requireView().findViewById(R.id.tv_intel)
     }
 
     private fun addToFavorites() {
@@ -130,9 +144,9 @@ class HeroDetailFragment : Fragment(com.dhandroid2022.projetointegrador.R.layout
         for (favHero in favList) {
             tempList.add(favHero.id.toString())
             if (tempList.contains(heroID)){
-                favButton.text = "REMOVER DOS FAVORITOS"
+                favButton.text = "REMOVE FROM FAVORITES"
             } else {
-                favButton.text = "ADICIONAR AOS FAVORITOS"
+                favButton.text = "ADD TO FAVORITES"
             }
         }
         favButton.setOnClickListener {
@@ -142,10 +156,10 @@ class HeroDetailFragment : Fragment(com.dhandroid2022.projetointegrador.R.layout
             }
             if (tempList2.contains(heroID)){
                 removeFromFavorites()
-                favButton.text = "ADICIONAR AOS FAVORITOS"
+                favButton.text = "ADD TO FAVORITES"
             } else {
                 addToFavorites()
-                favButton.text = "REMOVER DOS FAVORITOS"
+                favButton.text = "REMOVE FROM FAVORITES"
             }
         }
     }

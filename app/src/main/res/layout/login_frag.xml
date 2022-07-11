@@ -26,7 +26,7 @@
             app:layout_constraintHorizontal_bias="0.493"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/marvel_logo"/>
+            app:srcCompat="@drawable/logo_mm"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_login_email"
@@ -78,6 +78,7 @@
             app:layout_constraintTop_toBottomOf="@id/til_login_password" />
 
         <ImageView
+            android:id="@+id/google_login"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="84dp"
@@ -87,6 +88,7 @@
             app:srcCompat="@drawable/google_black" />
 
         <ImageView
+            android:id="@+id/face_login"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginTop="35dp"

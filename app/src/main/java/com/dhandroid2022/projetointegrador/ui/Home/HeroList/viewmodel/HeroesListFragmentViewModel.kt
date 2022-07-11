@@ -1,5 +1,6 @@
 package com.dhandroid2022.projetointegrador.ui.Home.HeroList.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -47,7 +48,7 @@ class HeroesListFragmentViewModel : ViewModel() {
             }
 
         } catch (e: Exception) {
-
+            Log.e("ERRO", e.printStackTrace().toString())
         }
 
     }

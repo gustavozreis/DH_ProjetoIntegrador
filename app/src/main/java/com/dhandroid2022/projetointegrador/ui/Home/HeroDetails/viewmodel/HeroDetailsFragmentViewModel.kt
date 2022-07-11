@@ -102,7 +102,7 @@ class HeroDetailsFragmentViewModel(private val favoriteHeroDAO: FavoriteHeroDAO)
         val powerList = mutableListOf<String>()
 
         val sString = id.substring(3).toInt()
-        val powerTotal = (sString * 133).toString()
+        val powerTotal = (sString * 777).toString()
 
         val power = "${powerTotal[0]}${powerTotal[1]}"
         val dextery = "${powerTotal[2]}${powerTotal[3]}"

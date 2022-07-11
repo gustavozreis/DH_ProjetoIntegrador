@@ -53,7 +53,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="POWER"
+                        android:text="POW"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
 
@@ -78,7 +78,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="DEXTERY"
+                        android:text="DEX"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
 
@@ -103,7 +103,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="INTEL"
+                        android:text="INT"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
 

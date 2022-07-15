@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
@@ -35,6 +36,8 @@ class HeroesListFragment : Fragment(R.layout.fragment_heroes_list) {
 
     private var isLoading = false
 
+    private var callbackErrorMsg: String = ""
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -47,6 +50,7 @@ class HeroesListFragment : Fragment(R.layout.fragment_heroes_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        clearErrors()
         setUpAdapter()
         setUpObservers()
         setUpBinding()
@@ -73,6 +77,12 @@ class HeroesListFragment : Fragment(R.layout.fragment_heroes_list) {
 
         viewModel.isLoading.observe(this.viewLifecycleOwner) { isLoadingLiveData ->
             isLoading = isLoadingLiveData
+        }
+
+        viewModel.callBackError.observe(this.viewLifecycleOwner) { bool ->
+            if (bool == true) {
+                Toast.makeText(requireContext(), "Houve algum problema. Cheque sua conexão.", Toast.LENGTH_LONG).show()
+            }
         }
     }
 
@@ -101,5 +111,9 @@ class HeroesListFragment : Fragment(R.layout.fragment_heroes_list) {
                 }
             })
         }
+    }
+
+    private fun clearErrors() {
+        viewModel.clearErrors()
     }
 }

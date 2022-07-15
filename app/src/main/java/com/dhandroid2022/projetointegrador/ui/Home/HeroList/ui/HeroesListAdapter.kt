@@ -83,6 +83,7 @@ class HeroesListAdapter(
                     target: Target<Drawable>?,
                     isFirstResource: Boolean,
                 ): Boolean {
+                    holder.heroThumbnail.setImageResource(R.drawable.comictest)
                     return false
                 }
 

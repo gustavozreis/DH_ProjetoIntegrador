@@ -78,7 +78,8 @@ class HeroDetailFragmentAdapter(
                     target: Target<Drawable>?,
                     isFirstResource: Boolean,
                 ): Boolean {
-                    TODO("Not yet implemented")
+                    holder.comicThumbnail.setImageResource(R.drawable.comictest)
+                    return false
                 }
 
                 override fun onResourceReady(

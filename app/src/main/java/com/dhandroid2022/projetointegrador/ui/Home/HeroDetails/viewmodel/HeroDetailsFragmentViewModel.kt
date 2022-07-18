@@ -1,19 +1,14 @@
 package com.dhandroid2022.projetointegrador.ui.Home.HeroDetails.viewmodel
 
-import android.content.ContentValues
-import android.content.Context
-import android.content.Context.MODE_PRIVATE
+import android.util.Log
 import androidx.lifecycle.*
-import com.bumptech.glide.Glide.init
 import com.dhandroid2022.projetointegrador.data.comicDTO.ComicDTO
-import com.dhandroid2022.projetointegrador.data.favorites.DBHelper
 import com.dhandroid2022.projetointegrador.data.favorites.FavoriteHero
 import com.dhandroid2022.projetointegrador.data.favorites.FavoriteHeroDAO
-import com.dhandroid2022.projetointegrador.data.favorites.FeedReaderContract
 import com.dhandroid2022.projetointegrador.data.heroDTO.HeroDTO
 import com.dhandroid2022.projetointegrador.data.repositories.ComicRepository
 import com.dhandroid2022.projetointegrador.data.repositories.HeroRepository
-import kotlinx.coroutines.flow.toList
+import com.dhandroid2022.projetointegrador.data.utils.ApiResult
 import kotlinx.coroutines.launch
 
 class HeroDetailsFragmentViewModel(private val favoriteHeroDAO: FavoriteHeroDAO) : ViewModel() {
@@ -41,29 +36,37 @@ class HeroDetailsFragmentViewModel(private val favoriteHeroDAO: FavoriteHeroDAO)
 
     fun getHeroDetails(heroID: String) {
         var hero: HeroDTO
-        viewModelScope.launch {
-            hero = heroRepository.fetchHeroDetails(heroID).data
-            _hero.value = hero
-        }
-    }
 
-    fun getHeroIdFromArgs(heroID: String) {
-        heroIdFromArgs = heroID
-        getComicList(heroID)
+        try {
+            viewModelScope.launch {
+                val apiResponse = heroRepository.fetchHeroDetails(heroID)
+                if (apiResponse is ApiResult.Success) {
+                    hero = apiResponse.data.data
+                    _hero.value = hero
+                }
+            }
+
+        } catch (e: Exception) {
+            Log.e("ERRO", e.printStackTrace().toString())
+        }
     }
 
     fun getComicList(heroID: String) {
         var comicList: MutableList<ComicDTO> = mutableListOf()
         try {
             viewModelScope.launch {
-                val tempList = comicRepository.fetchComicList(heroID, "0").data.comicList
-                for (comic in tempList) {
-                    comicList.add(comic)
+                val apiResponse = comicRepository.fetchComicList(heroID, "0")
+                if (apiResponse is ApiResult.Success) {
+                    val tempList = apiResponse.data.data.comicList
+                    for (comic in tempList) {
+                        comicList.add(comic)
+                    }
+                    _comicList.value = comicList
                 }
-                _comicList.value = comicList
+
             }
         } catch (e: Exception) {
-
+            Log.e("ERRO", e.printStackTrace().toString())
         }
     }
 
@@ -71,14 +74,17 @@ class HeroDetailsFragmentViewModel(private val favoriteHeroDAO: FavoriteHeroDAO)
         heroId: String,
         heroName: String,
         heroThumbUrl: String,
+        heroDescription: String,
     ) {
 
         viewModelScope.launch {
             val favToAdd = FavoriteHero(
                 heroId.toInt(),
                 heroName,
-                heroThumbUrl
-            )
+                heroThumbUrl,
+                heroDescription,
+
+                )
             favoriteHeroDAO.insert(favToAdd)
             getFavoritesList()
         }
@@ -91,12 +97,32 @@ class HeroDetailsFragmentViewModel(private val favoriteHeroDAO: FavoriteHeroDAO)
         }
     }
 
-    fun getFavoritesList() {
+    private fun getFavoritesList() {
         viewModelScope.launch {
             val tempList = favoriteHeroDAO.getAll()
             _favoritesList.value = tempList
         }
 
+    }
+
+    fun createPowers(id: String): List<String> {
+
+        val powerList = mutableListOf<String>()
+
+        val sString = id.substring(3).toInt()
+        val powerTotal = (sString * 777).toString()
+
+        val power = "${powerTotal[0]}${powerTotal[1]}"
+        val dextery = "${powerTotal[2]}${powerTotal[3]}"
+        val inteligence = "${powerTotal[4]}${powerTotal[5]}"
+
+        powerList.apply {
+            add(power)
+            add(dextery)
+            add(inteligence)
+        }
+
+        return powerList
     }
 
 }

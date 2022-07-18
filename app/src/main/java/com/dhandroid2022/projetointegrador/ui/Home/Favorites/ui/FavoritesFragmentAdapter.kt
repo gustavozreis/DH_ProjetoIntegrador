@@ -27,16 +27,29 @@ class FavoritesFragmentAdapter(
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoritesViewHolder {
-        val layoutInflater = LayoutInflater.from(context).inflate(R.layout.fragment_heroes_list_item, parent, false)
+        val layoutInflater = LayoutInflater.from(context).inflate(R.layout.fragment_favorites_list_item, parent, false)
         return FavoritesViewHolder(layoutInflater)
     }
 
     override fun onBindViewHolder(holder: FavoritesViewHolder, position: Int) {
-        val heroName: String = favList[position].name
+        val heroName = favList[position].name
+        val heroID = favList[position].id
+        val heroDescription = favList[position].description
+
         val thumbnailUrl: String = favList[position].thumbUrl
 
         holder.heroName.text = heroName
         insertImageFromUrl(thumbnailUrl, holder.heroThumbnail)
+
+        holder.heroThumbnail.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToHeroDetailFragment(
+                thumbnailUrl,
+                heroName,
+                heroID.toString(),
+                heroDescription,
+            )
+            navController.navigate(action)
+        }
     }
 
     override fun getItemCount(): Int = favList.size

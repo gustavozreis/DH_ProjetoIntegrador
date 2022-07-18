@@ -1,10 +1,13 @@
 package com.dhandroid2022.projetointegrador.ui.Home.HeroList.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.bumptech.glide.Glide.init
 import com.dhandroid2022.projetointegrador.data.heroDTO.HeroDTO
 import com.dhandroid2022.projetointegrador.data.repositories.HeroRepository
+import com.dhandroid2022.projetointegrador.data.utils.ApiResult
 import kotlinx.coroutines.launch
 
 class HeroesListFragmentViewModel : ViewModel() {
@@ -23,47 +26,80 @@ class HeroesListFragmentViewModel : ViewModel() {
 
     var isLoading = MutableLiveData<Boolean>(false)
 
+    private var _callBackError = MutableLiveData<Boolean>(false)
+    val callBackError: MutableLiveData<Boolean>
+        get() = _callBackError
+
 
     init {
         instantiateHeroList()
     }
 
     fun getHeroes() {
+
         val totalHeroList: MutableList<HeroDTO> = mutableListOf()
         val returnedHeroes = mutableListOf<HeroDTO>()
         val tempOffset = offset.value
         offset.value = tempOffset!! + 100
         totalHeroList.addAll(heroesList.value!!)
+
+        _callBackError.value = false
+
         try {
             viewModelScope.launch {
                 isLoading.value = true
-                val tempList = repository.fetchHeroList(tempOffset.toString())
-                for (hero in tempList.data.heroList) {
-                    totalHeroList.add(hero)
-                    returnedHeroes.add(hero)
+                val apiResponse = repository.fetchHeroList(tempOffset.toString())
+
+                if (apiResponse is ApiResult.Success) {
+                    val tempList = apiResponse.data.data.heroList
+                    for (hero in tempList) {
+                        totalHeroList.add(hero)
+                        returnedHeroes.add(hero)
+                    }
+                    _heroesList.value = totalHeroList
+                    _heroesToAdd.value = returnedHeroes
+                    isLoading.value = false
+                } else {
+                    _heroesList.value = totalHeroList
+                    _callBackError.value = true
                 }
-                _heroesList.value = totalHeroList
-                _heroesToAdd.value = returnedHeroes
-                isLoading.value = false
             }
-
         } catch (e: Exception) {
-
+            Log.e("ERRO", e.printStackTrace().toString())
         }
 
     }
 
     private fun instantiateHeroList() {
         val heroList: MutableList<HeroDTO> = mutableListOf()
-        viewModelScope.launch {
-            val tempList = repository.fetchHeroList("0")
-            for (hero in tempList.data.heroList) {
-                heroList.add(hero)
+
+        _callBackError.value = false
+
+        try {
+            viewModelScope.launch {
+                val apiResponse = repository.fetchHeroList("0")
+
+                if (apiResponse is ApiResult.Success) {
+                    val tempList = apiResponse.data.data.heroList
+                    for (hero in tempList) {
+                        heroList.add(hero)
+                    }
+                    _heroesList.value = heroList
+                    _heroesToAdd.value = heroList
+                    offset.value = _heroesList.value!!.size
+                } else {
+                    _heroesList.value = heroList
+                    _callBackError.value = true
+                }
             }
-            _heroesList.value = heroList
-            _heroesToAdd.value = heroList
-            offset.value = _heroesList.value!!.size
+        } catch (e: Exception) {
+            Log.e("ERRO", e.printStackTrace().toString())
         }
+
+    }
+
+    fun clearErrors() {
+        _callBackError.value = false
     }
 
 }

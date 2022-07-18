@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name">Multiverso Marvel</string>
     <string name="app_name">ProjetoIntegrador</string>
     <string name="webclient_id" >"91014945175-59fsmdo29ddrqm15sttos8ohhpp5r2gt.apps.googleusercontent.com"</string>
     <!-- TODO: Remove or change this placeholder text -->

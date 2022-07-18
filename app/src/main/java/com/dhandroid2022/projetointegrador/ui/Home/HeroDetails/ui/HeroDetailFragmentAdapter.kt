@@ -89,7 +89,6 @@ class HeroDetailFragmentAdapter(
                     dataSource: DataSource?,
                     isFirstResource: Boolean,
                 ): Boolean {
-                    //holder.comicThumbnail.visibility = View.VISIBLE
                     holder.shimmerEffect.hideShimmer()
                     return false
                 }

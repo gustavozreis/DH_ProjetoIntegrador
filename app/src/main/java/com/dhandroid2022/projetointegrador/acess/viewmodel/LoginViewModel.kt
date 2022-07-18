@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.dhandroid2022.projetointegrador.acess.StringUtils
 import com.dhandroid2022.projetointegrador.acess.data.Result
 import com.dhandroid2022.projetointegrador.acess.data.UserRepository
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import kotlinx.coroutines.launch
 
 class LoginViewModel: ViewModel() {

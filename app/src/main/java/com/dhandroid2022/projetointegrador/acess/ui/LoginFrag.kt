@@ -10,13 +10,22 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.dhandroid2022.projetointegrador.R
 import com.dhandroid2022.projetointegrador.acess.data.Result
+import com.dhandroid2022.projetointegrador.acess.data.UserRepository
 import com.dhandroid2022.projetointegrador.acess.viewmodel.LoginViewModel
 import com.dhandroid2022.projetointegrador.ui.Home.HomeActivity
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
+
+const val REQUEST_CODE_SIGN_IN = 616
+
+@Suppress("DEPRECATION")
+
 class LoginFrag : Fragment(R.layout.login_frag) {
+    private val userRepository = UserRepository()
 
     private val viewModel: LoginViewModel by viewModels()
 
@@ -53,6 +62,7 @@ class LoginFrag : Fragment(R.layout.login_frag) {
         tilPassword = view.findViewById(R.id.til_login_password)
         etPassword = view.findViewById(R.id.et_password)
         btnLogin = view.findViewById(R.id.btn_login)
+        googleLogin = view.findViewById(R.id.google_login)
 
 
     }
@@ -72,6 +82,28 @@ class LoginFrag : Fragment(R.layout.login_frag) {
             viewModel.doLogin(email, pwd)
         }
 
+        googleLogin.setOnClickListener {
+            val options = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build()
+            val signInClient = GoogleSignIn.getClient(requireActivity(), options)
+            signInClient.signInIntent.also {
+                startActivityForResult(it, REQUEST_CODE_SIGN_IN)
+            }
+        }
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_SIGN_IN) {
+            val account = GoogleSignIn.getSignedInAccountFromIntent(data).result
+            account.let {
+                userRepository.googleAuthForFirebase(it)
+                accessMainApp()
+            }
+        }
     }
 
     private fun clearErrors() {
@@ -116,6 +148,7 @@ class LoginFrag : Fragment(R.layout.login_frag) {
         val intent = Intent(requireContext(), HomeActivity::class.java)
         startActivity(intent)
     }
+
     companion object {
         private const val EMAIL_ERROR_MSG = "O Email não é Valido."
         private const val PASSWORD_ERROR_MSG = "A senha tem que ter 8 carateres."
